@@ -1,186 +1,215 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MacReyhan HQ</title>
-    <style>
-        /* 🎨 THEME SETUP */
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --accent: #8b5cf6; /* Violet Neon */
-            --text-main: #f8fafc;
-            --text-dim: #94a3b8;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            overflow: hidden;
-            background-image: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
-        }
-
-        /* ✨ GLOW EFFECTS */
-        .glow-orb {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: var(--accent);
-            filter: blur(150px);
-            opacity: 0.2;
-            z-index: -1;
-            border-radius: 50%;
-        }
-
-        /* 🕰️ CLOCK & GREETING */
-        .header { text-align: center; margin-bottom: 40px; }
-        h1 { font-size: 4rem; font-weight: 800; letter-spacing: -2px; margin-bottom: 10px; }
-        .subtitle { color: var(--text-dim); font-size: 1.2rem; }
-        
-        /* 🔍 SEARCH BAR */
-        .search-box {
-            background: var(--card-bg);
-            padding: 15px 25px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            width: 100%;
-            max-width: 600px;
-            margin-bottom: 50px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: 0.3s;
-            backdrop-filter: blur(10px);
-        }
-        .search-box:hover, .search-box:focus-within {
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
-            border-color: var(--accent);
-        }
-        input {
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            width: 100%;
-            outline: none;
-        }
-
-        /* 📦 GRID LAYOUT */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 800px;
-            padding: 20px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: 0.3s;
-            text-decoration: none;
-            color: white;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            background: rgba(139, 92, 246, 0.2);
-            border-color: var(--accent);
-        }
-
-        .icon { font-size: 2rem; margin-bottom: 10px; display: block; }
-        .label { font-size: 0.9rem; font-weight: 600; }
-
-        /* 📱 MOBILE RESPONSIVE */
-        @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; }
-            .grid { grid-template-columns: repeat(2, 1fr); }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="glow-orb" style="top: 10%; left: 20%;"></div>
-    <div class="glow-orb" style="bottom: 10%; right: 20%; background: #06b6d4;"></div>
-
-    <div class="header">
-        <h1 id="time">00:00</h1>
-        <p class="subtitle" id="greeting">Loading System...</p>
-    </div>
-
-    <div class="search-box">
-        <span style="margin-right: 10px;">🔍</span>
-        <input type="text" id="searchInput" placeholder="Search Google or type a command..." onkeydown="handleSearch(event)">
-    </div>
-
-    <div class="grid">
-        <a href="https://github.com/MacReyhan/Warehouse-Finder" target="_blank" class="card">
-            <span class="icon">📦</span>
-            <span class="label">Warehouse Finder</span>
-        </a>
-        <a href="https://github.com/MacReyhan/Refund-Response-APP" target="_blank" class="card">
-            <span class="icon">💸</span>
-            <span class="label">Refund Tool</span>
-        </a>
-        <a href="https://github.com/MacReyhan/my-homelab" target="_blank" class="card">
-            <span class="icon">🏠</span>
-            <span class="label">HomeLab</span>
-        </a>
-        
-        <a href="https://www.youtube.com" target="_blank" class="card">
-            <span class="icon">📺</span>
-            <span class="label">YouTube</span>
-        </a>
-        <a href="https://github.com/MacReyhan" target="_blank" class="card">
-            <span class="icon">😺</span>
-            <span class="label">My GitHub</span>
-        </a>
-        <a href="https://chat.google.com" target="_blank" class="card">
-            <span class="icon">🤖</span>
-            <span class="label">Gemini</span>
-        </a>
-    </div>
-
+    <title>Sayan | Developer & Automator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <script>
-        // ⏰ LIVE CLOCK
-        function updateTime() {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            document.getElementById('time').innerText = timeString;
-
-            // Dynamic Greeting
-            const hour = now.getHours();
-            let greet = "Welcome back, Sayan";
-            if (hour < 12) greet = "Good Morning, Sayan ☀️";
-            else if (hour < 18) greet = "Good Afternoon, Sayan 🌤️";
-            else greet = "Good Evening, Sayan 🌙";
-            
-            document.getElementById('greeting').innerText = greet;
-        }
-        setInterval(updateTime, 1000);
-        updateTime();
-
-        // 🔍 SEARCH FUNCTION
-        function handleSearch(event) {
-            if (event.key === 'Enter') {
-                const query = document.getElementById('searchInput').value;
-                if(query) {
-                    window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        dark: '#0f172a',
+                        card: '#1e293b',
+                        accent: '#6366f1', /* Indigo-500 */
+                    }
                 }
             }
         }
     </script>
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; }
+        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body class="antialiased selection:bg-accent selection:text-white">
+
+    <nav class="fixed w-full z-50 glass border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-xl font-bold tracking-tighter hover:text-accent transition cursor-pointer">MacReyhan<span class="text-accent">.dev</span></span>
+            <div class="space-x-6 text-sm font-medium hidden md:block">
+                <a href="#about" class="hover:text-accent transition">About</a>
+                <a href="#projects" class="hover:text-accent transition">Projects</a>
+                <a href="#contact" class="hover:text-accent transition">Contact</a>
+            </div>
+            <i class="fa-solid fa-bars md:hidden text-xl"></i>
+        </div>
+    </nav>
+
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
+        <div class="relative mb-8">
+            <div class="absolute -inset-1 bg-gradient-to-r from-accent to-purple-600 rounded-full blur opacity-75"></div>
+            <img src="https://github.com/MacReyhan.png" alt="Sayan" class="relative w-32 h-32 rounded-full border-4 border-dark object-cover shadow-2xl">
+        </div>
+        
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight">
+            Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Sayan</span>.
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mb-10 leading-relaxed">
+            I build tools that automate the boring stuff. <br>
+            <span class="text-accent">MCA Graduate</span> • <span class="text-white">Full Stack Dev</span> • <span class="text-gray-500">AutoHotkey Expert</span>
+        </p>
+
+        <div class="flex gap-4">
+            <a href="#projects" class="px-8 py-3 bg-accent hover:bg-indigo-600 text-white font-semibold rounded-full transition shadow-lg shadow-indigo-500/20">
+                View My Work
+            </a>
+            <a href="https://github.com/MacReyhan" target="_blank" class="px-8 py-3 border border-gray-600 hover:border-white rounded-full transition font-semibold">
+                <i class="fa-brands fa-github mr-2"></i> GitHub
+            </a>
+        </div>
+    </section>
+
+    <div class="w-full bg-card py-10 border-y border-gray-800">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-gray-400 text-sm font-semibold uppercase tracking-widest mb-6">Technologies I Use</p>
+            <div class="flex flex-wrap justify-center gap-8 text-3xl text-gray-400">
+                <i class="fa-brands fa-js hover:text-yellow-400 transition" title="JavaScript"></i>
+                <i class="fa-brands fa-html5 hover:text-orange-500 transition" title="HTML5"></i>
+                <i class="fa-brands fa-css3-alt hover:text-blue-500 transition" title="CSS3"></i>
+                <i class="fa-brands fa-windows hover:text-blue-400 transition" title="AutoHotkey & PowerShell"></i>
+                <i class="fa-brands fa-linux hover:text-white transition" title="Linux Homelab"></i>
+                <i class="fa-brands fa-android hover:text-green-500 transition" title="Android Dev"></i>
+            </div>
+        </div>
+    </div>
+
+    <section id="projects" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 flex items-center">
+                <span class="w-2 h-8 bg-accent mr-4 rounded-full"></span> Featured Projects
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-card rounded-2xl p-6 border border-gray-800 hover:border-accent transition hover:-translate-y-2 duration-300 group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-gray-800 rounded-lg text-accent text-xl">
+                            <i class="fa-solid fa-warehouse"></i>
+                        </div>
+                        <a href="https://github.com/MacReyhan/Warehouse-Finder" class="text-gray-500 hover:text-white"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-accent transition">Warehouse Finder</h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Instant lookup tool to find manager details and contact info by ID. Built for speed and efficiency.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono text-gray-300">
+                        <span class="px-2 py-1 bg-gray-800 rounded">TypeScript</span>
+                        <span class="px-2 py-1 bg-gray-800 rounded">Web Tool</span>
+                    </div>
+                </div>
+
+                <div class="bg-card rounded-2xl p-6 border border-gray-800 hover:border-accent transition hover:-translate-y-2 duration-300 group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-gray-800 rounded-lg text-green-400 text-xl">
+                            <i class="fa-solid fa-money-bill-wave"></i>
+                        </div>
+                        <a href="https://github.com/MacReyhan/Refund-Response-APP" class="text-gray-500 hover:text-white"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-accent transition">Refund Response Tool</h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                        High-performance utility for generating standardized refund responses with one-click copy.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono text-gray-300">
+                        <span class="px-2 py-1 bg-gray-800 rounded">Productivity</span>
+                        <span class="px-2 py-1 bg-gray-800 rounded">Automation</span>
+                    </div>
+                </div>
+
+                <div class="bg-card rounded-2xl p-6 border border-gray-800 hover:border-accent transition hover:-translate-y-2 duration-300 group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-gray-800 rounded-lg text-orange-400 text-xl">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <a href="https://github.com/MacReyhan/my-homelab" class="text-gray-500 hover:text-white"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-accent transition">My Homelab</h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Documentation of my personal server setup, Linux VMs, and networking experiments.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono text-gray-300">
+                        <span class="px-2 py-1 bg-gray-800 rounded">Linux</span>
+                        <span class="px-2 py-1 bg-gray-800 rounded">Docker</span>
+                    </div>
+                </div>
+
+                <div class="bg-card rounded-2xl p-6 border border-gray-800 hover:border-accent transition hover:-translate-y-2 duration-300 group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-gray-800 rounded-lg text-blue-400 text-xl">
+                            <i class="fa-solid fa-keyboard"></i>
+                        </div>
+                        <a href="https://github.com/MacReyhan/AHK-Studio-AI" class="text-gray-500 hover:text-white"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-accent transition">AHK Studio AI</h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Advanced scripting tools powered by AI to automate complex desktop workflows.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono text-gray-300">
+                        <span class="px-2 py-1 bg-gray-800 rounded">AutoHotkey</span>
+                        <span class="px-2 py-1 bg-gray-800 rounded">AI</span>
+                    </div>
+                </div>
+
+                <div class="bg-card rounded-2xl p-6 border border-gray-800 hover:border-accent transition hover:-translate-y-2 duration-300 group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-gray-800 rounded-lg text-pink-400 text-xl">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <a href="https://github.com/MacReyhan/LoginNewCSS" class="text-gray-500 hover:text-white"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-accent transition">Login UI Design</h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                        A modern, responsive login page template exploring new CSS techniques.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono text-gray-300">
+                        <span class="px-2 py-1 bg-gray-800 rounded">HTML/CSS</span>
+                        <span class="px-2 py-1 bg-gray-800 rounded">Design</span>
+                    </div>
+                </div>
+
+                 <div class="bg-card rounded-2xl p-6 border border-gray-800 hover:border-accent transition hover:-translate-y-2 duration-300 group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-gray-800 rounded-lg text-yellow-400 text-xl">
+                            <i class="fa-solid fa-language"></i>
+                        </div>
+                        <a href="https://github.com/MacReyhan/Language-PRO-App" class="text-gray-500 hover:text-white"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-accent transition">Language PRO</h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Writing assistant featuring Gemini API integration and voice input.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono text-gray-300">
+                        <span class="px-2 py-1 bg-gray-800 rounded">API</span>
+                        <span class="px-2 py-1 bg-gray-800 rounded">Firebase</span>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://github.com/MacReyhan?tab=repositories" class="text-accent hover:text-white font-semibold transition">
+                    See all repositories <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-dark border-t border-gray-800 py-12 text-center">
+        <h2 class="text-2xl font-bold mb-6">Let's Connect</h2>
+        <div class="flex justify-center gap-6 mb-8 text-2xl text-gray-400">
+            <a href="https://github.com/MacReyhan" class="hover:text-white transition"><i class="fa-brands fa-github"></i></a>
+            <a href="mailto:your-email@example.com" class="hover:text-white transition"><i class="fa-solid fa-envelope"></i></a>
+            <a href="#" class="hover:text-blue-500 transition"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <p class="text-gray-600 text-sm">
+            © 2026 Sayan (MacReyhan). Built with <span class="text-accent">TailwindCSS</span>.
+        </p>
+    </footer>
+
 </body>
 </html>
