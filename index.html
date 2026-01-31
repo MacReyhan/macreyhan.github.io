@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sayan Mukherjee | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -28,6 +29,11 @@
         body { background-color: #0f172a; color: #f8fafc; }
         .glass { background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
         .timeline-line { position: absolute; left: 24px; top: 0; bottom: 0; width: 2px; background: #334155; z-index: 0; }
+        
+        /* Icon Hover Effects */
+        .tech-icon { font-size: 3rem; transition: all 0.3s ease; }
+        .tech-card:hover .tech-icon { transform: scale(1.1); }
+        .tech-card:hover .colored { filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3)); }
     </style>
 </head>
 <body class="antialiased selection:bg-accent selection:text-white">
@@ -37,7 +43,8 @@
             <span class="text-xl font-bold tracking-tighter hover:text-accent transition cursor-pointer">Sayan<span class="text-accent">.dev</span></span>
             <div class="space-x-6 text-sm font-medium hidden md:block">
                 <a href="#about" class="hover:text-accent transition">About</a>
-                <a href="#experience" class="hover:text-accent transition">Experience</a>
+                <a href="#experience" class="hover:text-accent transition">My Journey</a>
+                <a href="#skills" class="hover:text-accent transition">Skills</a>
                 <a href="#projects" class="hover:text-accent transition">Projects</a>
                 <a href="#contact" class="hover:text-accent transition">Contact</a>
             </div>
@@ -55,19 +62,19 @@
             Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Sayan Mukherjee</span>.
         </h1>
         <p class="text-xl text-gray-400 max-w-2xl mb-8 leading-relaxed">
-            A dedicated professional combining <span class="text-white">Technical Support</span> expertise with <span class="text-accent">Automation</span> skills. <br>
-            Solving problems, optimizing workflows, and building cool tools.
+            Technical Support Specialist & Full Stack Developer. <br>
+            <span class="text-white">Flipkart Executive</span> by day, <span class="text-accent">Automation Expert</span> by night.
         </p>
         
         <div class="flex flex-wrap justify-center gap-4 text-sm font-mono text-gray-500 mb-10">
-            <span class="px-3 py-1 bg-gray-900 rounded-full border border-gray-800"><i class="fa-solid fa-graduation-cap mr-2"></i>BCA (Hons)</span>
+            <span class="px-3 py-1 bg-gray-900 rounded-full border border-gray-800"><i class="fa-solid fa-graduation-cap mr-2"></i>MCA (2025)</span>
             <span class="px-3 py-1 bg-gray-900 rounded-full border border-gray-800"><i class="fa-solid fa-location-dot mr-2"></i>Kolkata, WB</span>
-            <span class="px-3 py-1 bg-gray-900 rounded-full border border-gray-800"><i class="fa-solid fa-language mr-2"></i>English, Hindi, Bengali</span>
+            <span class="px-3 py-1 bg-gray-900 rounded-full border border-gray-800"><i class="fa-solid fa-language mr-2"></i>EN / BN / HI</span>
         </div>
 
         <div class="flex gap-4">
             <a href="#experience" class="px-8 py-3 bg-accent hover:bg-indigo-600 text-white font-semibold rounded-full transition shadow-lg shadow-indigo-500/20">
-                See My Journey
+                My Journey
             </a>
             <a href="https://github.com/MacReyhan" target="_blank" class="px-8 py-3 border border-gray-600 hover:border-white rounded-full transition font-semibold">
                 <i class="fa-brands fa-github mr-2"></i> GitHub
@@ -78,7 +85,7 @@
     <section id="experience" class="py-20 px-6 bg-gray-900/50">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl font-bold mb-12 flex items-center">
-                <span class="w-2 h-8 bg-accent mr-4 rounded-full"></span> Work History
+                <span class="w-2 h-8 bg-accent mr-4 rounded-full"></span> Professional Journey
             </h2>
 
             <div class="relative pl-6 sm:pl-0">
@@ -90,10 +97,10 @@
                         <p class="text-accent font-mono text-sm mb-2">July 2025 - Present</p>
                         <p class="text-gray-400 text-sm">Customer Support Executive. Handling critical queries and ensuring seamless delivery experiences.</p>
                     </div>
-                    <div class="absolute left-0 sm:left-[50%] top-0 sm:top-2 w-12 h-12 bg-white rounded-full border-4 border-gray-900 flex items-center justify-center -translate-x-1/2 shadow-[0_0_15px_rgba(40,116,240,0.5)]">
-                        <i class="fa-solid fa-bag-shopping text-flipkartBlue text-lg"></i>
+                    <div class="absolute left-0 sm:left-[50%] top-0 sm:top-2 w-16 h-16 bg-white rounded-full border-4 border-gray-900 flex items-center justify-center -translate-x-1/2 shadow-[0_0_15px_rgba(40,116,240,0.5)] overflow-hidden">
+                        <img src="https://i.ibb.co/wNhT9Ndc/minutes.png" onerror="this.src='https://ibb.co/JRjNfRc3'" alt="Flipkart Minutes" class="w-full h-full object-cover p-1">
                     </div>
-                    <div class="pl-12 sm:hidden">
+                    <div class="pl-16 sm:hidden">
                         <h3 class="text-xl font-bold text-white">Flipkart Minutes</h3>
                         <p class="text-accent font-mono text-sm mb-1">July 2025 - Present</p>
                         <p class="text-gray-400 text-sm">Customer Support Executive.</p>
@@ -103,29 +110,54 @@
 
                 <div class="relative z-10 sm:flex justify-between items-center mb-12 group">
                     <div class="sm:w-[45%] text-right pr-8 hidden sm:block"></div>
-                    <div class="absolute left-0 sm:left-[50%] top-0 sm:top-2 w-12 h-12 bg-gray-800 rounded-full border-4 border-gray-900 flex items-center justify-center -translate-x-1/2 group-hover:bg-red-600 transition">
-                        <i class="fa-solid fa-tower-cell text-white text-lg"></i>
+                    <div class="absolute left-0 sm:left-[50%] top-0 sm:top-2 w-12 h-12 bg-accent rounded-full border-4 border-gray-900 flex items-center justify-center -translate-x-1/2">
+                        <i class="fa-solid fa-user-graduate text-white text-lg"></i>
                     </div>
                     <div class="pl-12 sm:w-[45%] sm:pl-8">
-                        <h3 class="text-xl font-bold text-white group-hover:text-red-500 transition">Vodafone India (_VOIS)</h3>
-                        <p class="text-gray-500 font-mono text-sm mb-2">July 2022 - Oct 2024</p>
-                        <p class="text-gray-300 font-semibold mb-1">Retail Support Specialist</p>
-                        <ul class="text-gray-400 text-sm list-disc pl-4 space-y-1">
-                            <li>Drove customer satisfaction & increased sales conversions.</li>
-                            <li>Minimized POS downtime & optimized store efficiency.</li>
-                        </ul>
+                        <h3 class="text-xl font-bold text-white group-hover:text-accent transition">Masters in Computer Application</h3>
+                        <p class="text-gray-500 font-mono text-sm mb-2">Completed July 2025</p>
+                        <p class="text-gray-300 font-semibold mb-1">Techno College Hooghly (MAKAUT)</p>
+                        <p class="text-gray-400 text-sm">Achieved a <span class="text-white font-bold">8.59 CGPA</span>. Specialized in software development.</p>
                     </div>
                 </div>
 
                 <div class="relative z-10 sm:flex justify-between items-center mb-12 group">
                     <div class="sm:w-[45%] text-right pr-8 hidden sm:block">
+                        <h3 class="text-xl font-bold text-white group-hover:text-red-500 transition">Vodafone India (_VOIS)</h3>
+                        <p class="text-gray-500 font-mono text-sm mb-2">July 2022 - Oct 2024</p>
+                        <p class="text-gray-300 font-semibold mb-1">Retail Support Specialist</p>
+                        <p class="text-gray-400 text-sm">Drove customer satisfaction & minimized POS downtime through effective troubleshooting.</p>
+                    </div>
+                    <div class="absolute left-0 sm:left-[50%] top-0 sm:top-2 w-12 h-12 bg-gray-800 rounded-full border-4 border-gray-900 flex items-center justify-center -translate-x-1/2 group-hover:bg-red-600 transition">
+                        <i class="fa-solid fa-tower-cell text-white text-lg"></i>
+                    </div>
+                    <div class="pl-12 sm:hidden">
+                        <h3 class="text-xl font-bold text-white">Vodafone India</h3>
+                        <p class="text-gray-500 font-mono text-sm mb-2">2022 - 2024</p>
+                        <p class="text-gray-400 text-sm">Retail Support Specialist.</p>
+                    </div>
+                    <div class="sm:w-[45%] pl-8 hidden sm:block"></div>
+                </div>
+
+                <div class="relative z-10 sm:flex justify-between items-center mb-12 group">
+                    <div class="sm:w-[45%] text-right pr-8 hidden sm:block"></div>
+                    <div class="absolute left-0 sm:left-[50%] top-0 sm:top-2 w-12 h-12 bg-gray-700 rounded-full border-4 border-gray-900 flex items-center justify-center -translate-x-1/2">
+                        <i class="fa-solid fa-graduation-cap text-white text-lg"></i>
+                    </div>
+                    <div class="pl-12 sm:w-[45%] sm:pl-8">
+                        <h3 class="text-xl font-bold text-white">Bachelors in Computer Application</h3>
+                        <p class="text-gray-500 font-mono text-sm mb-2">Graduated 2021</p>
+                        <p class="text-gray-300 font-semibold mb-1">Techno India Hooghly</p>
+                        <p class="text-gray-400 text-sm">Graduated with 8.31 CGPA.</p>
+                    </div>
+                </div>
+
+                <div class="relative z-10 sm:flex justify-between items-center group">
+                    <div class="sm:w-[45%] text-right pr-8 hidden sm:block">
                         <h3 class="text-xl font-bold text-white">Titto Enterprise</h3>
                         <p class="text-gray-500 font-mono text-sm mb-2">Aug 2018 - Aug 2020</p>
                         <p class="text-gray-300 font-semibold mb-1">Customer Support Executive</p>
-                        <ul class="text-gray-400 text-sm list-disc pl-4 space-y-1 inline-block text-left">
-                            <li>Boosted customer loyalty & retained key clients.</li>
-                            <li>Collaborated with sales for upselling opportunities.</li>
-                        </ul>
+                        <p class="text-gray-400 text-sm">Boosted customer loyalty and optimized warehouse efficiency.</p>
                     </div>
                     <div class="absolute left-0 sm:left-[50%] top-0 sm:top-2 w-12 h-12 bg-gray-800 rounded-full border-4 border-gray-900 flex items-center justify-center -translate-x-1/2">
                         <i class="fa-solid fa-headset text-white text-lg"></i>
@@ -133,38 +165,67 @@
                     <div class="pl-12 sm:hidden">
                         <h3 class="text-xl font-bold text-white">Titto Enterprise</h3>
                         <p class="text-gray-500 font-mono text-sm mb-2">2018 - 2020</p>
-                        <p class="text-gray-400 text-sm">Resolved inquiries and improved warehouse efficiency.</p>
                     </div>
                     <div class="sm:w-[45%] pl-8 hidden sm:block"></div>
-                </div>
-
-                 <div class="relative z-10 sm:flex justify-between items-center group">
-                    <div class="sm:w-[45%] text-right pr-8 hidden sm:block"></div>
-                    <div class="absolute left-0 sm:left-[50%] top-0 sm:top-2 w-12 h-12 bg-accent rounded-full border-4 border-gray-900 flex items-center justify-center -translate-x-1/2">
-                        <i class="fa-solid fa-graduation-cap text-white text-lg"></i>
-                    </div>
-                    <div class="pl-12 sm:w-[45%] sm:pl-8">
-                        <h3 class="text-xl font-bold text-white">Techno India Hooghly</h3>
-                        <p class="text-gray-500 font-mono text-sm mb-1">Graduated 2021</p>
-                        <p class="text-gray-300 text-sm">BCA (Hons) - 8.31 CGPA</p>
-                        <p class="text-gray-500 text-xs mt-1">MAKAUT University</p>
-                    </div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <div class="w-full border-y border-gray-800 bg-card py-10">
+    <div id="skills" class="w-full border-y border-gray-800 bg-card py-16">
         <div class="max-w-6xl mx-auto px-6 text-center">
-            <p class="text-gray-400 text-sm font-semibold uppercase tracking-widest mb-6">Technical Arsenal</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <span class="px-4 py-2 bg-gray-800 rounded-lg text-sm font-mono hover:bg-gray-700 transition">C / C++</span>
-                <span class="px-4 py-2 bg-gray-800 rounded-lg text-sm font-mono hover:bg-gray-700 transition">AutoHotkey</span>
-                <span class="px-4 py-2 bg-gray-800 rounded-lg text-sm font-mono hover:bg-gray-700 transition">Zoho CRM</span>
-                <span class="px-4 py-2 bg-gray-800 rounded-lg text-sm font-mono hover:bg-gray-700 transition">Citrix</span>
-                <span class="px-4 py-2 bg-gray-800 rounded-lg text-sm font-mono hover:bg-gray-700 transition">Nuance</span>
-                <span class="px-4 py-2 bg-gray-800 rounded-lg text-sm font-mono hover:bg-gray-700 transition">Troubleshooting</span>
+            <h3 class="text-2xl font-bold mb-10 text-white">Technical Arsenal</h3>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-items-center">
+                <div class="tech-card flex flex-col items-center gap-3 group">
+                    <i class="devicon-html5-plain colored tech-icon"></i>
+                    <span class="text-gray-400 text-sm font-medium group-hover:text-white">HTML5</span>
+                </div>
+                <div class="tech-card flex flex-col items-center gap-3 group">
+                    <i class="devicon-css3-plain colored tech-icon"></i>
+                    <span class="text-gray-400 text-sm font-medium group-hover:text-white">CSS3</span>
+                </div>
+                <div class="tech-card flex flex-col items-center gap-3 group">
+                    <i class="devicon-typescript-plain colored tech-icon"></i>
+                    <span class="text-gray-400 text-sm font-medium group-hover:text-white">TypeScript</span>
+                </div>
+                <div class="tech-card flex flex-col items-center gap-3 group">
+                    <i class="devicon-kotlin-plain colored tech-icon"></i>
+                    <span class="text-gray-400 text-sm font-medium group-hover:text-white">Kotlin</span>
+                </div>
+                <div class="tech-card flex flex-col items-center gap-3 group">
+                    <i class="devicon-cplusplus-plain colored tech-icon"></i>
+                    <span class="text-gray-400 text-sm font-medium group-hover:text-white">C / C++</span>
+                </div>
+                <div class="tech-card flex flex-col items-center gap-3 group">
+                    <i class="devicon-android-plain colored tech-icon"></i>
+                    <span class="text-gray-400 text-sm font-medium group-hover:text-white">Android</span>
+                </div>
+                <div class="tech-card flex flex-col items-center gap-3 group">
+                    <i class="fa-solid fa-keyboard text-green-500 tech-icon"></i>
+                    <span class="text-gray-400 text-sm font-medium group-hover:text-white">AutoHotkey</span>
+                </div>
+                <div class="tech-card flex flex-col items-center gap-3 group">
+                    <i class="fa-solid fa-server text-blue-400 tech-icon"></i>
+                    <span class="text-gray-400 text-sm font-medium group-hover:text-white">Citrix</span>
+                </div>
+                <div class="tech-card flex flex-col items-center gap-3 group">
+                    <i class="fa-solid fa-cloud text-yellow-500 tech-icon"></i>
+                    <span class="text-gray-400 text-sm font-medium group-hover:text-white">Zoho CRM</span>
+                </div>
+                <div class="tech-card flex flex-col items-center gap-3 group">
+                    <i class="fa-solid fa-screwdriver-wrench text-red-400 tech-icon"></i>
+                    <span class="text-gray-400 text-sm font-medium group-hover:text-white">Support</span>
+                </div>
+                <div class="tech-card flex flex-col items-center gap-3 group">
+                    <i class="devicon-git-plain colored tech-icon"></i>
+                    <span class="text-gray-400 text-sm font-medium group-hover:text-white">Git</span>
+                </div>
+                <div class="tech-card flex flex-col items-center gap-3 group">
+                    <i class="devicon-linux-plain text-white tech-icon"></i>
+                    <span class="text-gray-400 text-sm font-medium group-hover:text-white">Linux</span>
+                </div>
             </div>
         </div>
     </div>
@@ -206,7 +267,7 @@
             
             <div class="text-center mt-12">
                 <a href="https://github.com/MacReyhan?tab=repositories" class="text-accent hover:text-white font-semibold transition">
-                    View all 15+ Repositories <i class="fa-solid fa-arrow-right ml-2"></i>
+                    View all Repositories <i class="fa-solid fa-arrow-right ml-2"></i>
                 </a>
             </div>
         </div>
