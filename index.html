@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacReyhan HQ</title>
+    <style>
+        /* 🎨 THEME SETUP */
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent: #8b5cf6; /* Violet Neon */
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            background-image: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+        }
+
+        /* ✨ GLOW EFFECTS */
+        .glow-orb {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            filter: blur(150px);
+            opacity: 0.2;
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        /* 🕰️ CLOCK & GREETING */
+        .header { text-align: center; margin-bottom: 40px; }
+        h1 { font-size: 4rem; font-weight: 800; letter-spacing: -2px; margin-bottom: 10px; }
+        .subtitle { color: var(--text-dim); font-size: 1.2rem; }
+        
+        /* 🔍 SEARCH BAR */
+        .search-box {
+            background: var(--card-bg);
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        .search-box:hover, .search-box:focus-within {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+            border-color: var(--accent);
+        }
+        input {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            width: 100%;
+            outline: none;
+        }
+
+        /* 📦 GRID LAYOUT */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(139, 92, 246, 0.2);
+            border-color: var(--accent);
+        }
+
+        .icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+        .label { font-size: 0.9rem; font-weight: 600; }
+
+        /* 📱 MOBILE RESPONSIVE */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow-orb" style="top: 10%; left: 20%;"></div>
+    <div class="glow-orb" style="bottom: 10%; right: 20%; background: #06b6d4;"></div>
+
+    <div class="header">
+        <h1 id="time">00:00</h1>
+        <p class="subtitle" id="greeting">Loading System...</p>
+    </div>
+
+    <div class="search-box">
+        <span style="margin-right: 10px;">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search Google or type a command..." onkeydown="handleSearch(event)">
+    </div>
+
+    <div class="grid">
+        <a href="https://github.com/MacReyhan/Warehouse-Finder" target="_blank" class="card">
+            <span class="icon">📦</span>
+            <span class="label">Warehouse Finder</span>
+        </a>
+        <a href="https://github.com/MacReyhan/Refund-Response-APP" target="_blank" class="card">
+            <span class="icon">💸</span>
+            <span class="label">Refund Tool</span>
+        </a>
+        <a href="https://github.com/MacReyhan/my-homelab" target="_blank" class="card">
+            <span class="icon">🏠</span>
+            <span class="label">HomeLab</span>
+        </a>
+        
+        <a href="https://www.youtube.com" target="_blank" class="card">
+            <span class="icon">📺</span>
+            <span class="label">YouTube</span>
+        </a>
+        <a href="https://github.com/MacReyhan" target="_blank" class="card">
+            <span class="icon">😺</span>
+            <span class="label">My GitHub</span>
+        </a>
+        <a href="https://chat.google.com" target="_blank" class="card">
+            <span class="icon">🤖</span>
+            <span class="label">Gemini</span>
+        </a>
+    </div>
+
+    <script>
+        // ⏰ LIVE CLOCK
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('time').innerText = timeString;
+
+            // Dynamic Greeting
+            const hour = now.getHours();
+            let greet = "Welcome back, Sayan";
+            if (hour < 12) greet = "Good Morning, Sayan ☀️";
+            else if (hour < 18) greet = "Good Afternoon, Sayan 🌤️";
+            else greet = "Good Evening, Sayan 🌙";
+            
+            document.getElementById('greeting').innerText = greet;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // 🔍 SEARCH FUNCTION
+        function handleSearch(event) {
+            if (event.key === 'Enter') {
+                const query = document.getElementById('searchInput').value;
+                if(query) {
+                    window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
